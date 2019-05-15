@@ -167,6 +167,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IbB-36-Yo9">
                                                     <rect key="frame" x="250" y="63" width="104" height="30"/>
                                                     <state key="normal" title="Add to Favorite"/>
+                                                    <connections>
+                                                        <action selector="addFavoriteWithSender:" destination="8Qx-6Z-AZC" eventType="touchDown" id="aWS-kC-eAK"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>

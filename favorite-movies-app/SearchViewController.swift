@@ -14,6 +14,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet var tableView: UITableView!
     @IBOutlet var addToFavoriteButton: UIButton!
     
+    weak var delegate: ViewController!
+    
     var searchResults = [Movie]()
     
     @IBAction func search(sender: UIButton) {
@@ -28,7 +30,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     @IBAction func addFavorite(sender: UIButton) {
-        
+        print("Item \(sender.tag) was selected as a favorite.")
+        self.delegate.favoriteMovies.append(searchResults[sender.tag])
     }
     
     func retrieveMoviesByTerm(searchTerm: String) {
