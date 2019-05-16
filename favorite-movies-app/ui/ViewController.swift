@@ -29,7 +29,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        // Get movies from database
+        // 2. get the logged in users list
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

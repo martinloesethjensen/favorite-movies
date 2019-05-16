@@ -72,3 +72,6 @@ GoogleService-Info.plist
 
 # No pods
 Pods/
+
+# No .idea/
+.idea/
