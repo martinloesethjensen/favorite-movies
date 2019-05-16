@@ -69,3 +69,6 @@ fastlane/test_output
 
 # No GoogleService-Info.plist file
 GoogleService-Info.plist
+
+# No pods
+Pods/
