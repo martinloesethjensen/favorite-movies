@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		491858F8228D5B2A006FFD99 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491858F7228D5B2A006FFD99 /* LoginViewController.swift */; };
+		491858FA228D61E2006FFD99 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 491858F9228D61E2006FFD99 /* GoogleService-Info.plist */; };
 		4968C42F228A07AB0078ACEE /* HTTPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C42E228A07AB0078ACEE /* HTTPHandler.swift */; };
 		4968C431228A093C0078ACEE /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C430228A093C0078ACEE /* JSONParser.swift */; };
 		4968C433228A0A210078ACEE /* MovieDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C432228A0A210078ACEE /* MovieDataProcessor.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		491858F7228D5B2A006FFD99 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		491858F9228D61E2006FFD99 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4968C42E228A07AB0078ACEE /* HTTPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHandler.swift; sourceTree = "<group>"; };
 		4968C430228A093C0078ACEE /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		4968C432228A0A210078ACEE /* MovieDataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataProcessor.swift; sourceTree = "<group>"; };
@@ -52,6 +56,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		491858F4228D5A98006FFD99 /* FacebookLogin */ = {
+			isa = PBXGroup;
+			children = (
+				491858F7228D5B2A006FFD99 /* LoginViewController.swift */,
+			);
+			path = FacebookLogin;
+			sourceTree = "<group>";
+		};
 		49DBC1692289946C009FA20B = {
 			isa = PBXGroup;
 			children = (
@@ -79,11 +91,13 @@
 				49DBC17C2289946D009FA20B /* Assets.xcassets */,
 				49DBC17E2289946D009FA20B /* LaunchScreen.storyboard */,
 				49DBC1812289946D009FA20B /* Info.plist */,
+				491858F4228D5A98006FFD99 /* FacebookLogin */,
 				49DBC1872289974F009FA20B /* CustomTableViewCell.swift */,
 				49DBC1892289987F009FA20B /* Movie.swift */,
 				49DBC18B2289AD05009FA20B /* SearchViewController.swift */,
 				4968C42E228A07AB0078ACEE /* HTTPHandler.swift */,
 				4968C430228A093C0078ACEE /* JSONParser.swift */,
+				491858F9228D61E2006FFD99 /* GoogleService-Info.plist */,
 				4968C432228A0A210078ACEE /* MovieDataProcessor.swift */,
 			);
 			path = "favorite-movies-app";
@@ -95,7 +109,6 @@
 				9E178F085C3960DE82019430 /* Pods-favorite-movies-app.debug.xcconfig */,
 				5609A8949B32D4C32DE30B47 /* Pods-favorite-movies-app.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -118,6 +131,8 @@
 				49DBC16E2289946C009FA20B /* Sources */,
 				49DBC16F2289946C009FA20B /* Frameworks */,
 				49DBC1702289946C009FA20B /* Resources */,
+				0D2228D6662CC55230AE27A4 /* [CP] Embed Pods Frameworks */,
+				815203822853694F72C7AA6F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49DBC1802289946D009FA20B /* LaunchScreen.storyboard in Resources */,
+				491858FA228D61E2006FFD99 /* GoogleService-Info.plist in Resources */,
 				49DBC17D2289946D009FA20B /* Assets.xcassets in Resources */,
 				49DBC17B2289946C009FA20B /* Main.storyboard in Resources */,
 			);
@@ -175,6 +191,56 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0D2228D6662CC55230AE27A4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-favorite-movies-app/Pods-favorite-movies-app-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-favorite-movies-app/Pods-favorite-movies-app-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		1A1AC0A7383C473CA2CCE788 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -197,6 +263,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		815203822853694F72C7AA6F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-favorite-movies-app/Pods-favorite-movies-app-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-favorite-movies-app/Pods-favorite-movies-app-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -204,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				491858F8228D5B2A006FFD99 /* LoginViewController.swift in Sources */,
 				49DBC18C2289AD05009FA20B /* SearchViewController.swift in Sources */,
 				49DBC1882289974F009FA20B /* CustomTableViewCell.swift in Sources */,
 				4968C431228A093C0078ACEE /* JSONParser.swift in Sources */,
@@ -365,6 +454,33 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Bolts\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-weak_framework",
+					"\"Accounts\"",
+					"-weak_framework",
+					"\"AudioToolbox\"",
+					"-weak_framework",
+					"\"CoreGraphics\"",
+					"-weak_framework",
+					"\"CoreLocation\"",
+					"-weak_framework",
+					"\"Foundation\"",
+					"-weak_framework",
+					"\"QuartzCore\"",
+					"-weak_framework",
+					"\"Security\"",
+					"-weak_framework",
+					"\"Social\"",
+					"-weak_framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "dk.mlj.favorite-movies-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -383,6 +499,33 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Bolts\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-weak_framework",
+					"\"Accounts\"",
+					"-weak_framework",
+					"\"AudioToolbox\"",
+					"-weak_framework",
+					"\"CoreGraphics\"",
+					"-weak_framework",
+					"\"CoreLocation\"",
+					"-weak_framework",
+					"\"Foundation\"",
+					"-weak_framework",
+					"\"QuartzCore\"",
+					"-weak_framework",
+					"\"Security\"",
+					"-weak_framework",
+					"\"Social\"",
+					"-weak_framework",
+					"\"UIKit\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "dk.mlj.favorite-movies-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
