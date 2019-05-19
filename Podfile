@@ -15,6 +15,7 @@ target 'favorite-movies-app' do
   # Firebase
   pod 'Firebase/Core'
   pod 'FirebaseUI/Auth'
+  pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'Firebase/Firestore'
