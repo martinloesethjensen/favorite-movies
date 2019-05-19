@@ -10,17 +10,18 @@ import UIKit
 import Firebase
 import FirebaseStorage
 
+
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet var searchText: UITextField!
     @IBOutlet var tableView: UITableView!
     @IBOutlet var addToFavoriteButton: UIButton!
     
-    weak var delegate: ViewController!
+    var delegate = ViewController()
+    
+    lazy var firebaseService = FirebaseService()
     
     var searchResults = [Movie]()
-    
-    let firebaseService = FirebaseService()
     
     @IBAction func search(sender: UIButton) {
         print("Searching for \(self.searchText.text!)")
@@ -52,7 +53,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         /*
          Add api key
          */
-        let apiKey = "" // TODO: remove before pushing to Github
+        let apiKey = "d58c58a9" // TODO: remove before pushing to Github
         let url = "https://www.omdbapi.com/?apikey=\(apiKey)&s=\(searchTerm)&type=movie&r=json" // TODO: change how we get results and parse them to Movie objects
         HTTPHandler.getJson(urlString: url, completionHandler: parseDataIntoMovies)
     }

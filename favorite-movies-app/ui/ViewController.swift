@@ -10,11 +10,12 @@ import UIKit
 import Firebase
 import FirebaseStorage
 
-let firebaseService = FirebaseService()
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var favoriteMovies = [Movie]()
     
     @IBOutlet var mainTableView: UITableView!
+    
+    lazy var firebaseService = FirebaseService()
     
     override func viewWillAppear(_ animated: Bool) {
         mainTableView.delegate = self
@@ -56,8 +57,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "searchMoviesSegue" {
-            let controller = segue.destination as! SearchViewController
-            controller.delegate = self
+            //let tabBarController = segue.destination as! UITabBarController
+            //let controller = tabBarController.viewControllers![2] as! SearchViewController
+            //controller.delegate = self
         }
     }
     
