@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseStorage
 
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -18,10 +20,13 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     var searchResults = [Movie]()
     
+    let firebaseService = FirebaseService()
+    
     @IBAction func search(sender: UIButton) {
         print("Searching for \(self.searchText.text!)")
         
-        let searchTerm = searchText.text!
+        // Trimming search term
+        let searchTerm = searchText.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         if searchTerm.count > 2 {
             retrieveMoviesByTerm(searchTerm: searchTerm)
         }
@@ -30,8 +35,16 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     @IBAction func addFavorite(sender: UIButton) {
+        let document = firebaseService.moviesCollection.document()
+        let movie = searchResults[sender.tag]
+        
         print("Item \(sender.tag) was selected as a favorite.")
-        self.delegate.favoriteMovies.append(searchResults[sender.tag])
+        
+        //Add movie to list in ViewController class
+        self.delegate.favoriteMovies.append(movie)
+        
+        // Upload to firebase
+        firebaseService.uploadMovieToDB(movie:movie, documentRef: document)
     }
     
     func retrieveMoviesByTerm(searchTerm: String) {
@@ -39,8 +52,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         /*
          Add api key
          */
-        let apiKey = ""
-        let url = "https://www.omdbapi.com/?apikey=\(apiKey)&s=\(searchTerm)&type=movie&r=json"
+        let apiKey = "" // TODO: remove before pushing to Github
+        let url = "https://www.omdbapi.com/?apikey=\(apiKey)&s=\(searchTerm)&type=movie&r=json" // TODO: change how we get results and parse them to Movie objects
         HTTPHandler.getJson(urlString: url, completionHandler: parseDataIntoMovies)
     }
 
@@ -77,17 +90,20 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func displayMovieImage(_ row: Int, movieCell: CustomTableViewCell) {
         let url: String = (URL(string: searchResults[row].imageUrl)?.absoluteString)!
+        
+        // Creates a task to retrieve content from url
         URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: { (data, response, error) -> Void in
             if error != nil {
                 print(error!)
                 return
             }
             
+            // For not blocking
             DispatchQueue.main.async(execute: {
                 let image = UIImage(data: data!)
                 movieCell.movieImageView?.image = image
             })
-        }).resume()
+        }).resume() // resume task if it's suspended
     }
     
     func parseDataIntoMovies(data: Data?) -> Void {
@@ -95,6 +111,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             let object = JSONParser.parse(data: data)
             if let object = object {
                 self.searchResults = MovieDataProcessor.mapJsonToMovies(object: object, moviesKey: "Search")
+                
+                // Update tableView without blocking
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -127,17 +145,4 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     */
 
-}
-
-
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tapGesture = UITapGestureRecognizer(target: self,
-                                                action: #selector(hideKeyboard))
-        view.addGestureRecognizer(tapGesture)
-    }
-    
-    @objc func hideKeyboard() {
-        view.endEditing(true)
-    }
 }

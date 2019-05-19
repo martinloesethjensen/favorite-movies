@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseStorage
 
+let firebaseService = FirebaseService()
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var favoriteMovies: [Movie] = []
-    var selectedMovie: Movie?
+    var favoriteMovies = [Movie]()
     
     @IBOutlet var mainTableView: UITableView!
     
@@ -18,7 +20,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         mainTableView.delegate = self
         mainTableView.dataSource = self
         mainTableView.reloadData()
-        
+
         if favoriteMovies.count == 0 {
             // append a movie to the list
             favoriteMovies.append(Movie(id: "tt0372784", title: "Batman Begins", year: "2005", imageUrl: "https://images-na.ssl-images-amazon.com/images/M/MV5BNTM3OTc0MzM2OV5BMl5BanBnXkFtZTYwNzUwMTI3._V1_SX300.jpg"))
@@ -29,7 +31,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        firebaseService.moviesCollection.addSnapshotListener { (snapshot, error) in
+
+            self.favoriteMovies.removeAll()
+
+            for document in snapshot!.documents {
+                if let title = document.data()["title"] as? String,
+                   let imageUrl = document.data()["imageUrl"] as? String,
+                   let year = document.data()["year"] as? String,
+                   let id = document.documentID as? String {
+                    let movie = Movie(id: id, title: title, year: year, imageUrl: imageUrl)
+                    self.favoriteMovies.append(movie)
+                    print("received \(title)")
+                }
+            }
+            DispatchQueue.main.async {
+                self.mainTableView.reloadData()
+            }
+        }
+
+        // TODO: get the logged in users list
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -77,6 +99,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            print("Deleted: \(favoriteMovies[indexPath.row].title)\n\tdocument id: \(favoriteMovies[indexPath.row].id)")
+
+            let movieDocumentId = favoriteMovies[indexPath.row].id
+
+            // delete from firebase first
+            firebaseService.deleteMovieFromDB(movieId: movieDocumentId)
+
+            // delete from list and remove row from table view
+            self.favoriteMovies.remove(at: indexPath.row)
+            self.mainTableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
 }
 
