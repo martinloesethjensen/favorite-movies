@@ -2,7 +2,7 @@
 # platform :ios, '9.0'
 
 target 'favorite-movies-app' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
   # Pods for favorite-movies-app
@@ -20,4 +20,6 @@ target 'favorite-movies-app' do
   pod 'Firebase/Storage'
   pod 'Firebase/Firestore'
 
+  pod 'Bolts'
+	
 end
