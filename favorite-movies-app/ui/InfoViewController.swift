@@ -14,16 +14,41 @@ class InfoViewController: UIViewController {
     @IBOutlet var movieTitle: UILabel!
     @IBOutlet var movieYear: UILabel!
     
+    var movie: Movie?
+    
     @IBAction func removeFromFavorites(sender: UIButton) {
         print("hello")
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        movieTitle.text = movie?.title ?? "HEjejeje"
+        movieYear.text = movie?.year ?? "HHDujskdnskjd"
+        //displayMovieImage()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+    func displayMovieImage() {
+        let url: String = (URL(string: movie!.imageUrl)?.absoluteString)!
+        URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: { (data, response, error) -> Void in
+            if error != nil {
+                print(error!)
+                return
+            }
+            
+            // Handle threading so we don't hold up the ui thread
+            DispatchQueue.main.async(execute: {
+                let image = UIImage(data: data!)
+                self.movieImageView?.image = image
+            })
+        }).resume()
+    }
 
     /*
     // MARK: - Navigation

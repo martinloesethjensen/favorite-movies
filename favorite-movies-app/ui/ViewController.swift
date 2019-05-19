@@ -12,6 +12,7 @@ import FirebaseStorage
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var favoriteMovies = [Movie]()
+    var selectedMovie: Movie!
     
     @IBOutlet var mainTableView: UITableView!
     
@@ -55,11 +56,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // TODO: get the logged in users list
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedMovie = favoriteMovies[indexPath.row]
+        
+        
+        
+        print(favoriteMovies[indexPath.row])
+        performSegue(withIdentifier: "showDetail", sender: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "searchMoviesSegue" {
             //let tabBarController = segue.destination as! UITabBarController
             //let controller = tabBarController.viewControllers![2] as! SearchViewController
             //controller.delegate = self
+        }
+        
+        if segue.identifier == "showDetail" {
+            if let infoViewController = segue.destination as? InfoViewController {
+                //infoViewController.movie = self.selectedMovie!
+
+                print(selectedMovie)
+            }
         }
     }
     
