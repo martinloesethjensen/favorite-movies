@@ -12,6 +12,7 @@
 		4968C42F228A07AB0078ACEE /* HTTPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C42E228A07AB0078ACEE /* HTTPHandler.swift */; };
 		4968C431228A093C0078ACEE /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C430228A093C0078ACEE /* JSONParser.swift */; };
 		4968C433228A0A210078ACEE /* MovieDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C432228A0A210078ACEE /* MovieDataProcessor.swift */; };
+		49BE7A362291ADF100353098 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BE7A352291ADF100353098 /* InfoViewController.swift */; };
 		49DBC1762289946C009FA20B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBC1752289946C009FA20B /* AppDelegate.swift */; };
 		49DBC1782289946C009FA20B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBC1772289946C009FA20B /* ViewController.swift */; };
 		49DBC17B2289946C009FA20B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49DBC1792289946C009FA20B /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 		4968C42E228A07AB0078ACEE /* HTTPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHandler.swift; sourceTree = "<group>"; };
 		4968C430228A093C0078ACEE /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		4968C432228A0A210078ACEE /* MovieDataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataProcessor.swift; sourceTree = "<group>"; };
+		49BE7A352291ADF100353098 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		49DBC1722289946C009FA20B /* favorite-movies-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "favorite-movies-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49DBC1752289946C009FA20B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49DBC1772289946C009FA20B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +66,6 @@
 				DF9B4A607D8695B5BFF5DB6E /* Pods-favorite-movies-app.debug.xcconfig */,
 				18BA7C34A2A57F7F28C28207 /* Pods-favorite-movies-app.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -127,6 +128,7 @@
 				49DBC18B2289AD05009FA20B /* SearchViewController.swift */,
 				49DBC1872289974F009FA20B /* CustomTableViewCell.swift */,
 				491858F7228D5B2A006FFD99 /* LoginViewController.swift */,
+				49BE7A352291ADF100353098 /* InfoViewController.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -283,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				491858F8228D5B2A006FFD99 /* LoginViewController.swift in Sources */,
+				49BE7A362291ADF100353098 /* InfoViewController.swift in Sources */,
 				49DBC18C2289AD05009FA20B /* SearchViewController.swift in Sources */,
 				49DBC1882289974F009FA20B /* CustomTableViewCell.swift in Sources */,
 				4968C431228A093C0078ACEE /* JSONParser.swift in Sources */,
