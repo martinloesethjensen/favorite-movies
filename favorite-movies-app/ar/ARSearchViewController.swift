@@ -13,6 +13,8 @@ class ARSearchViewController: UIViewController, ARSKViewDelegate {
     
     let configuration = ARWorldTrackingConfiguration()
     
+    var searchResult: Movie?
+    
     @IBOutlet weak var arskView: ARSKView!
 
     override func viewDidLoad() {
@@ -48,7 +50,7 @@ class ARSearchViewController: UIViewController, ARSKViewDelegate {
             
             // find result from api and select first result.
             
-            //performSegue(withIdentifier: "showARSearchInfo", sender: self)
+            retrieveMoviesByTerm(searchTerm: referenceImageName)
         }
         
         return nil
@@ -56,10 +58,31 @@ class ARSearchViewController: UIViewController, ARSKViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showARSearchInfo" {
-            
+            if let infoSearchViewController = segue.destination as? InfoSearchViewController {
+                infoSearchViewController.movie = self.searchResult
+            }
         }
     }
     
+    func retrieveMoviesByTerm(searchTerm: String) {
+        
+        /*
+         Add api key
+         */
+        let apiKey = "d58c58a9" // TODO: remove before pushing to Github
+        let url = "https://www.omdbapi.com/?apikey=\(apiKey)&s=\(searchTerm)&type=movie&r=json" // TODO: change how we get results and parse them to Movie objects
+        HTTPHandler.getJson(urlString: url, completionHandler: parseDataIntoMovies)
+    }
+    
+    func parseDataIntoMovies(data: Data?) -> Void {
+        if let data = data {
+            let object = JSONParser.parse(data: data)
+            if let object = object {
+                self.searchResult = MovieDataProcessor.mapJsonToMovies(object: object, moviesKey: "Search")[0]
+                performSegue(withIdentifier: "showARSearchInfo", sender: self)
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation
