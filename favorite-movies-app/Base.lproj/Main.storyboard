@@ -68,7 +68,6 @@
                                             <outlet property="movieImageView" destination="47p-7T-Ex2" id="ScG-UT-hQR"/>
                                             <outlet property="movieTitle" destination="C57-Dc-d3D" id="Eny-aN-96l"/>
                                             <outlet property="movieYear" destination="En2-1c-15x" id="Iqm-El-r1D"/>
-                                            <segue destination="EC4-mp-GCj" kind="showDetail" identifier="showDetail" id="8xZ-mV-VmF"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -90,6 +89,7 @@
                     <navigationItem key="navigationItem" title="Favorite" id="mWd-lY-uGg"/>
                     <connections>
                         <outlet property="mainTableView" destination="6Gs-A1-XbB" id="Pgd-fZ-sX5"/>
+                        <segue destination="EC4-mp-GCj" kind="show" identifier="showDetail" id="eKV-ll-5qZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -104,34 +104,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iFD-Wi-3NS" userLabel="movieImageView">
-                                <rect key="frame" x="20" y="44" width="374" height="457"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iFD-Wi-3NS" userLabel="movieImageView">
+                                <rect key="frame" x="20" y="109" width="374" height="392"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQx-5h-7o9" userLabel="movieTitle">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQx-5h-7o9" userLabel="movieTitle">
                                 <rect key="frame" x="20" y="527" width="374" height="83"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="83" id="BCU-nE-fnO"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYs-gO-uca" userLabel="movieYear">
-                                <rect key="frame" x="20" y="618" width="374" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYs-gO-uca" userLabel="movieYear">
+                                <rect key="frame" x="20" y="618" width="374" height="61"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61" id="Ibe-h5-jML"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lSG-kq-pMa">
-                                <rect key="frame" x="184" y="711" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lSG-kq-pMa">
+                                <rect key="frame" x="20" y="736" width="374" height="51"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="26a-ZI-zGg"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Remove from favorites"/>
                                 <connections>
                                     <action selector="removeFromFavoritesWithSender:" destination="EC4-mp-GCj" eventType="touchUpInside" id="da5-ox-Nra"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="iFD-Wi-3NS" firstAttribute="leading" secondItem="ZQx-5h-7o9" secondAttribute="leading" id="8Ob-kM-TQS"/>
+                            <constraint firstItem="ZQx-5h-7o9" firstAttribute="trailing" secondItem="iYs-gO-uca" secondAttribute="trailing" id="Dkx-MU-XBh"/>
+                            <constraint firstItem="ZQx-5h-7o9" firstAttribute="top" secondItem="iFD-Wi-3NS" secondAttribute="bottom" constant="26" id="NjD-uW-mzW"/>
+                            <constraint firstItem="iFD-Wi-3NS" firstAttribute="trailing" secondItem="YOH-gs-tyd" secondAttribute="trailingMargin" id="PS7-5e-RoL"/>
+                            <constraint firstItem="ZQx-5h-7o9" firstAttribute="leading" secondItem="iYs-gO-uca" secondAttribute="leading" id="SUq-do-ofF"/>
+                            <constraint firstItem="iYs-gO-uca" firstAttribute="trailing" secondItem="lSG-kq-pMa" secondAttribute="trailing" id="SXg-A0-t6z"/>
+                            <constraint firstItem="iFD-Wi-3NS" firstAttribute="leading" secondItem="YOH-gs-tyd" secondAttribute="leadingMargin" id="TMG-rc-lOl"/>
+                            <constraint firstItem="iFD-Wi-3NS" firstAttribute="trailing" secondItem="ZQx-5h-7o9" secondAttribute="trailing" id="aVQ-3x-Tux"/>
+                            <constraint firstItem="iFD-Wi-3NS" firstAttribute="top" secondItem="o8X-Wt-jg7" secondAttribute="top" constant="21" id="ew0-fI-YUB"/>
+                            <constraint firstItem="iYs-gO-uca" firstAttribute="leading" secondItem="lSG-kq-pMa" secondAttribute="leading" id="iEX-9h-CAh"/>
+                            <constraint firstItem="o8X-Wt-jg7" firstAttribute="bottom" secondItem="lSG-kq-pMa" secondAttribute="bottom" constant="26" id="pPH-ky-xlS"/>
+                            <constraint firstItem="iYs-gO-uca" firstAttribute="top" secondItem="ZQx-5h-7o9" secondAttribute="bottom" constant="8" symbolic="YES" id="ruF-9T-pM7"/>
+                            <constraint firstItem="lSG-kq-pMa" firstAttribute="top" secondItem="iYs-gO-uca" secondAttribute="bottom" constant="57" id="vSA-2V-tnh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="o8X-Wt-jg7"/>
                     </view>
                     <connections>
@@ -280,10 +302,10 @@
         <!--Tab Bar Controller-->
         <scene sceneID="cuc-CR-GaU">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kH4-d2-AA8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Mbs-PP-O2B" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bJj-6I-Ati">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -293,6 +315,7 @@
                         <segue destination="RhK-RW-szN" kind="relationship" relationship="viewControllers" id="yN5-fZ-pfr"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kH4-d2-AA8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1048" y="875"/>
         </scene>

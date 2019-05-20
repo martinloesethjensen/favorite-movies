@@ -10,22 +10,28 @@ import UIKit
 
 class InfoViewController: UIViewController {
     
-    @IBOutlet var movieImageView: UIImageView!
-    @IBOutlet var movieTitle: UILabel!
-    @IBOutlet var movieYear: UILabel!
+    @IBOutlet weak var movieImageView: UIImageView!
+    @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet weak var movieYear: UILabel!
     
     var movie: Movie?
     
     @IBAction func removeFromFavorites(sender: UIButton) {
-        print("hello")
+        let firebaseService = FirebaseService()
+        
+        // deleting movie from database
+        firebaseService.deleteMovieFromDB(movieId: movie!.id)
+        
+        // go back to previous view controller
+        _ = navigationController?.popViewController(animated: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        movieTitle.text = movie?.title ?? "HEjejeje"
-        movieYear.text = movie?.year ?? "HHDujskdnskjd"
-        //displayMovieImage()
+        movieTitle.text = movie?.title ?? "{{Title}}"
+        movieYear.text = movie?.year ?? "{{Year}}"
+        displayMovieImage()
     }
     
     override func viewDidLoad() {
