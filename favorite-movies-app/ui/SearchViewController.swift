@@ -15,7 +15,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet var searchText: UITextField!
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var addToFavoriteButton: UIButton!
+    
+    var selectedMovie: Movie?
     
     var delegate = ViewController()
     
@@ -53,7 +54,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         /*
          Add api key
          */
-        let apiKey = "" // TODO: remove before pushing to Github
+        let apiKey = "d58c58a9" // TODO: remove before pushing to Github
         let url = "https://www.omdbapi.com/?apikey=\(apiKey)&s=\(searchTerm)&type=movie&r=json" // TODO: change how we get results and parse them to Movie objects
         HTTPHandler.getJson(urlString: url, completionHandler: parseDataIntoMovies)
     }
@@ -66,6 +67,22 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedMovie = searchResults[indexPath.row]
+        
+        performSegue(withIdentifier: "showSearchDetail", sender: nil)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showSearchDetail" {
+            if let infoSearchViewController = segue.destination as? InfoSearchViewController {
+                infoSearchViewController.movie = self.selectedMovie
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -13,7 +13,6 @@ import FirebaseStorage
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var favoriteMovies = [Movie]()
     var selectedMovie: Movie!
-    var currentMovieIndex = 0
     
     @IBOutlet var mainTableView: UITableView!
     
@@ -43,7 +42,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 if let title = document.data()["title"] as? String,
                    let imageUrl = document.data()["imageUrl"] as? String,
                    let year = document.data()["year"] as? String,
-                   let id = document.documentID as? String {
+                   let id = document.documentID as String? {
                     let movie = Movie(id: id, title: title, year: year, imageUrl: imageUrl)
                     self.favoriteMovies.append(movie)
                     print("received \(title)")
