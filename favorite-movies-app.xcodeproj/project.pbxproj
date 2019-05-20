@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,7 +26,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		18BA7C34A2A57F7F28C28207 /* Pods-favorite-movies-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-favorite-movies-app.release.xcconfig"; path = "Target Support Files/Pods-favorite-movies-app/Pods-favorite-movies-app.release.xcconfig"; sourceTree = "<group>"; };
 		491858F7228D5B2A006FFD99 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		491858F9228D61E2006FFD99 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4968C42E228A07AB0078ACEE /* HTTPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHandler.swift; sourceTree = "<group>"; };
@@ -44,8 +43,9 @@
 		49DBC1892289987F009FA20B /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		49DBC18B2289AD05009FA20B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		49E24B8E228DEE8E006D0D0B /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		4B7853919A84795A3005EEE4 /* Pods-favorite-movies-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-favorite-movies-app.debug.xcconfig"; path = "Target Support Files/Pods-favorite-movies-app/Pods-favorite-movies-app.debug.xcconfig"; sourceTree = "<group>"; };
+		91C30B827887B7BC503ED526 /* Pods-favorite-movies-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-favorite-movies-app.release.xcconfig"; path = "Target Support Files/Pods-favorite-movies-app/Pods-favorite-movies-app.release.xcconfig"; sourceTree = "<group>"; };
 		B073B4DA89BFACF90D4913E2 /* Pods_favorite_movies_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_favorite_movies_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DF9B4A607D8695B5BFF5DB6E /* Pods-favorite-movies-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-favorite-movies-app.debug.xcconfig"; path = "Target Support Files/Pods-favorite-movies-app/Pods-favorite-movies-app.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +63,8 @@
 		1E3F4925407ADAC0AB0CFAC6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DF9B4A607D8695B5BFF5DB6E /* Pods-favorite-movies-app.debug.xcconfig */,
-				18BA7C34A2A57F7F28C28207 /* Pods-favorite-movies-app.release.xcconfig */,
+				4B7853919A84795A3005EEE4 /* Pods-favorite-movies-app.debug.xcconfig */,
+				91C30B827887B7BC503ED526 /* Pods-favorite-movies-app.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -161,8 +161,8 @@
 				49DBC16E2289946C009FA20B /* Sources */,
 				49DBC16F2289946C009FA20B /* Frameworks */,
 				49DBC1702289946C009FA20B /* Resources */,
-				EF898CDA352F2EE52B9D3409 /* [CP] Embed Pods Frameworks */,
-				367D241A1A17124CBB9CD2FC /* [CP] Copy Pods Resources */,
+				2305E0E95E564C3E59B145E4 /* [CP] Embed Pods Frameworks */,
+				DCFD645CBE6FB2391FC38938 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -221,21 +221,54 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		367D241A1A17124CBB9CD2FC /* [CP] Copy Pods Resources */ = {
+		2305E0E95E564C3E59B145E4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-favorite-movies-app/Pods-favorite-movies-app-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Copy Pods Resources";
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-favorite-movies-app/Pods-favorite-movies-app-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-favorite-movies-app/Pods-favorite-movies-app-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-favorite-movies-app/Pods-favorite-movies-app-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-favorite-movies-app/Pods-favorite-movies-app-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3BCA33116A6D27B82E2279F8 /* [CP] Check Pods Manifest.lock */ = {
@@ -260,21 +293,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EF898CDA352F2EE52B9D3409 /* [CP] Embed Pods Frameworks */ = {
+		DCFD645CBE6FB2391FC38938 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-favorite-movies-app/Pods-favorite-movies-app-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-favorite-movies-app/Pods-favorite-movies-app-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-favorite-movies-app/Pods-favorite-movies-app-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-favorite-movies-app/Pods-favorite-movies-app-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-favorite-movies-app/Pods-favorite-movies-app-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -438,11 +476,11 @@
 		};
 		49DBC1852289946D009FA20B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF9B4A607D8695B5BFF5DB6E /* Pods-favorite-movies-app.debug.xcconfig */;
+			baseConfigurationReference = 4B7853919A84795A3005EEE4 /* Pods-favorite-movies-app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6FXMUQ2C49;
+				DEVELOPMENT_TEAM = HKKP7Y8T7D;
 				INFOPLIST_FILE = "favorite-movies-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -475,7 +513,7 @@
 					"-weak_framework",
 					"\"UIKit\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "dk.mlj.favorite-movies-app";
+				PRODUCT_BUNDLE_IDENTIFIER = "dk.mlj.favorite-movies-app1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -484,11 +522,11 @@
 		};
 		49DBC1862289946D009FA20B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 18BA7C34A2A57F7F28C28207 /* Pods-favorite-movies-app.release.xcconfig */;
+			baseConfigurationReference = 91C30B827887B7BC503ED526 /* Pods-favorite-movies-app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6FXMUQ2C49;
+				DEVELOPMENT_TEAM = HKKP7Y8T7D;
 				INFOPLIST_FILE = "favorite-movies-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -521,7 +559,7 @@
 					"-weak_framework",
 					"\"UIKit\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "dk.mlj.favorite-movies-app";
+				PRODUCT_BUNDLE_IDENTIFIER = "dk.mlj.favorite-movies-app1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

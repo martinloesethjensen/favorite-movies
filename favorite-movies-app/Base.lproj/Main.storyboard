@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Favorites-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="favorite_movies_app" customModuleProvider="target" sceneMemberID="viewController">
@@ -99,6 +99,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Favorites" id="ybZ-2O-nbM"/>
                     <navigationItem key="navigationItem" id="mWd-lY-uGg"/>
                     <connections>
                         <outlet property="mainTableView" destination="6Gs-A1-XbB" id="Pgd-fZ-sX5"/>
@@ -264,6 +265,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mPa-gj-7Z7"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Search" image="ic_visibility.png" id="4Z0-GB-sht"/>
                     <connections>
                         <outlet property="searchText" destination="R6P-J4-eIX" id="KuI-zX-o8u"/>
                         <outlet property="tableView" destination="Cgu-5O-Ls7" id="9RA-Oo-xgH"/>
@@ -286,11 +288,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3UC-2M-Y54" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-800" y="-42"/>
+            <point key="canvasLocation" x="-1172" y="-539"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PAw-Kg-Txq">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rk7-ie-Moe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="voa-pa-Zod" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NIO-8v-E9l">
@@ -302,9 +305,11 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="tHT-C7-h0H"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rk7-ie-Moe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_visibility.png" width="24" height="24"/>
+    </resources>
 </document>

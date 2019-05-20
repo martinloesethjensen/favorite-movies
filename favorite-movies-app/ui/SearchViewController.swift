@@ -52,7 +52,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         /*
          Add api key
          */
-        let apiKey = "" // TODO: remove before pushing to Github
+        let apiKey = "d58c58a9" // TODO: remove before pushing to Github
         let url = "https://www.omdbapi.com/?apikey=\(apiKey)&s=\(searchTerm)&type=movie&r=json" // TODO: change how we get results and parse them to Movie objects
         HTTPHandler.getJson(urlString: url, completionHandler: parseDataIntoMovies)
     }
