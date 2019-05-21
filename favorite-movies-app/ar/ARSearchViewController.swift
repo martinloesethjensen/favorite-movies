@@ -19,24 +19,28 @@ class ARSearchViewController: UIViewController, ARSKViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        arskView.delegate = self
-        
-        if let scene = SKScene(fileNamed: "MyScene") {
-            arskView.presentScene(scene)
+        DispatchQueue.main.async {
+            self.arskView.delegate = self
+            
+            if let scene = SKScene(fileNamed: "MyScene") {
+                
+                self.arskView.presentScene(scene)
+            }
+            
+            guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Resources", bundle: nil) else {
+                fatalError("no image found for ARWoldTrackingConfiguration")
+            }
+            
+            self.configuration.detectionImages = referenceImages
+            self.arskView.session.run(self.configuration)
         }
-        
-        guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Resources", bundle: nil) else {
-            fatalError("no image found for ARWoldTrackingConfiguration")
-        }
-        
-        configuration.detectionImages = referenceImages
-        arskView.session.run(configuration)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        arskView.session.run(configuration)
+        DispatchQueue.main.async {
+            self.arskView.session.run(self.configuration)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -45,21 +49,25 @@ class ARSearchViewController: UIViewController, ARSKViewDelegate {
     }
     
     func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
-        if let imageAnchor = anchor as? ARImageAnchor, let referenceImageName = imageAnchor.referenceImage.name {
-            print("Found image named: \(referenceImageName)")
-            
-            // find result from api and select first result.
-            
-            retrieveMoviesByTerm(searchTerm: referenceImageName)
+        DispatchQueue.main.async {
+            if let imageAnchor = anchor as? ARImageAnchor, let referenceImageName = imageAnchor.referenceImage.name {
+                print("Found image named: \(referenceImageName)")
+                
+                // find result from api and select first result.
+                
+                self.retrieveMoviesByTerm(searchTerm: referenceImageName)
+            }
         }
-        
         return nil
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showARSearchInfo" {
-            if let infoSearchViewController = segue.destination as? InfoSearchViewController {
-                infoSearchViewController.movie = self.searchResult
+            DispatchQueue.main.async {
+                if let infoARSearchViewController = segue.destination as? InfoARSearchViewController {
+                    infoARSearchViewController.movie = self.searchResult
+                    print(infoARSearchViewController.movie?.title)
+                }
             }
         }
     }
