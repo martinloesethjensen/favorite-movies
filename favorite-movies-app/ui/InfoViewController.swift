@@ -29,8 +29,10 @@ class InfoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        movieTitle.text = movie?.title ?? "{{Title}}"
-        movieYear.text = movie?.year ?? "{{Year}}"
+        DispatchQueue.main.async {
+            self.movieTitle.text = self.movie?.title ?? "{{Title}}"
+            self.movieYear.text = self.movie?.year ?? "{{Year}}"
+        }
         displayMovieImage()
     }
 

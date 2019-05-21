@@ -76,8 +76,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let index = indexPath.row
         
-        movieCell.movieTitle?.text = favoriteMovies[index].title
-        movieCell.movieYear?.text = favoriteMovies[index].year
+        DispatchQueue.main.async {
+            movieCell.movieTitle?.text = self.favoriteMovies[index].title
+            movieCell.movieYear?.text = self.favoriteMovies[index].year
+        }
+        
         displayMovieImage(index, movieCell: movieCell)
         
         return movieCell

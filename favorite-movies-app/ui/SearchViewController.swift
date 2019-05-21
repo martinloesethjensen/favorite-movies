@@ -96,10 +96,13 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         let index: Int = indexPath.row
         movieCell.addToFavoriteButton.tag = index
         
-        //title
-        movieCell.movieTitle?.text = searchResults[index].title
-        //year
-        movieCell.movieYear?.text = searchResults[index].year
+        DispatchQueue.main.async {
+            //title
+            movieCell.movieTitle?.text = self.searchResults[index].title
+            //year
+            movieCell.movieYear?.text = self.searchResults[index].year
+        }
+        
         // image
         displayMovieImage(index, movieCell: movieCell)
         

@@ -33,8 +33,10 @@ class InfoSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        movieTitle.text = movie?.title
-        movieYear.text = movie?.year
+        DispatchQueue.main.async {
+            self.movieTitle.text = self.movie?.title
+            self.movieYear.text = self.movie?.year
+        }
         displayMovieImage()
     }
     
