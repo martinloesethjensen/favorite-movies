@@ -10,11 +10,13 @@ import UIKit
 import Firebase
 import FirebaseStorage
 
-let firebaseService = FirebaseService()
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var favoriteMovies = [Movie]()
+    var selectedMovie: Movie!
     
     @IBOutlet var mainTableView: UITableView!
+    
+    lazy var firebaseService = FirebaseService()
     
     override func viewWillAppear(_ animated: Bool) {
         mainTableView.delegate = self
@@ -40,7 +42,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 if let title = document.data()["title"] as? String,
                    let imageUrl = document.data()["imageUrl"] as? String,
                    let year = document.data()["year"] as? String,
-                   let id = document.documentID as? String {
+                   let id = document.documentID as String? {
                     let movie = Movie(id: id, title: title, year: year, imageUrl: imageUrl)
                     self.favoriteMovies.append(movie)
                     print("received \(title)")
@@ -50,14 +52,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.mainTableView.reloadData()
             }
         }
-
-        // TODO: get the logged in users list
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedMovie = favoriteMovies[indexPath.row]
+        performSegue(withIdentifier: "showDetail", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "searchMoviesSegue" {
-            let controller = segue.destination as! SearchViewController
-            controller.delegate = self
+        if segue.identifier == "showDetail" {
+            if let infoViewController = segue.destination as? InfoViewController {
+                infoViewController.movie = self.selectedMovie
+            }
         }
     }
     

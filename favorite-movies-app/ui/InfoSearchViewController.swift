@@ -1,44 +1,41 @@
 //
-//  InfoViewController.swift
+//  InfoSearchViewController.swift
 //  favorite-movies-app
 //
-//  Created by Martin Løseth Jensen on 19/05/2019.
+//  Created by Martin Løseth Jensen on 20/05/2019.
 //  Copyright © 2019 Martin Løseth Jensen. All rights reserved.
 //
 
 import UIKit
 
-class InfoViewController: UIViewController {
+class InfoSearchViewController: UIViewController {
     
-    @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var movieYear: UILabel!
+    @IBOutlet weak var movieImageView: UIImageView!
     
     var movie: Movie?
     
-    @IBAction func removeFromFavorites(sender: UIButton) {
-        let firebaseService = FirebaseService()
-        
-        // deleting movie from database
-        firebaseService.deleteMovieFromDB(movieId: movie!.id)
-        
-        // go back to previous view controller
-        _ = navigationController?.popViewController(animated: true)
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        movieTitle.text = movie?.title ?? "{{Title}}"
-        movieYear.text = movie?.year ?? "{{Year}}"
-        displayMovieImage()
-    }
-
+    var delegate = ViewController()
     
+    @IBAction func addToFavorites() {
+        let firebaseService = FirebaseService()
+        let document = firebaseService.moviesCollection.document()
+        
+        firebaseService.uploadMovieToDB(movie: movie!, documentRef: document)
+        
+        delegate.favoriteMovies.append(movie!)
+        
+        // go back to favorites view controller
+        tabBarController?.selectedIndex = 0
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        movieTitle.text = movie?.title
+        movieYear.text = movie?.year
+        displayMovieImage()
     }
     
     func displayMovieImage() {
@@ -56,6 +53,7 @@ class InfoViewController: UIViewController {
             })
         }).resume()
     }
+    
 
     /*
     // MARK: - Navigation

@@ -10,10 +10,10 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
     
-    @IBOutlet var movieImageView: UIImageView!
-    @IBOutlet var movieTitle: UILabel!
-    @IBOutlet var movieYear: UILabel!
-    @IBOutlet var addToFavoriteButton: UIButton!
+    @IBOutlet weak var movieImageView: UIImageView!
+    @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet weak var movieYear: UILabel!
+    @IBOutlet weak var addToFavoriteButton: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()

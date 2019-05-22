@@ -24,7 +24,7 @@ class FirebaseService {
     let viewController = ViewController()
 
     func uploadMovieToDB(movie: Movie, documentRef: DocumentReference) {
-        documentRef.setData(["title": movie.title, "year": movie.year, "imageUrl": movie.imageUrl, "plot": movie.plot]) {
+        documentRef.setData(["title": movie.title, "year": movie.year, "imageUrl": movie.imageUrl]) {
             error in
             if error != nil {
                 print("Error adding movie to DB")

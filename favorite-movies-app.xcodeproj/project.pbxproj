@@ -12,6 +12,7 @@
 		4968C42F228A07AB0078ACEE /* HTTPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C42E228A07AB0078ACEE /* HTTPHandler.swift */; };
 		4968C431228A093C0078ACEE /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C430228A093C0078ACEE /* JSONParser.swift */; };
 		4968C433228A0A210078ACEE /* MovieDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C432228A0A210078ACEE /* MovieDataProcessor.swift */; };
+		49B7EE102292BD1D00AAE99F /* InfoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B7EE0F2292BD1D00AAE99F /* InfoSearchViewController.swift */; };
 		49BE7A362291ADF100353098 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BE7A352291ADF100353098 /* InfoViewController.swift */; };
 		49DBC1762289946C009FA20B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBC1752289946C009FA20B /* AppDelegate.swift */; };
 		49DBC1782289946C009FA20B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBC1772289946C009FA20B /* ViewController.swift */; };
@@ -32,6 +33,7 @@
 		4968C42E228A07AB0078ACEE /* HTTPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHandler.swift; sourceTree = "<group>"; };
 		4968C430228A093C0078ACEE /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		4968C432228A0A210078ACEE /* MovieDataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataProcessor.swift; sourceTree = "<group>"; };
+		49B7EE0F2292BD1D00AAE99F /* InfoSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSearchViewController.swift; sourceTree = "<group>"; };
 		49BE7A352291ADF100353098 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		49DBC1722289946C009FA20B /* favorite-movies-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "favorite-movies-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49DBC1752289946C009FA20B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				49DBC1872289974F009FA20B /* CustomTableViewCell.swift */,
 				491858F7228D5B2A006FFD99 /* LoginViewController.swift */,
 				49BE7A352291ADF100353098 /* InfoViewController.swift */,
+				49B7EE0F2292BD1D00AAE99F /* InfoSearchViewController.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				49DBC1882289974F009FA20B /* CustomTableViewCell.swift in Sources */,
 				4968C431228A093C0078ACEE /* JSONParser.swift in Sources */,
 				49DBC1782289946C009FA20B /* ViewController.swift in Sources */,
+				49B7EE102292BD1D00AAE99F /* InfoSearchViewController.swift in Sources */,
 				49DBC18A2289987F009FA20B /* Movie.swift in Sources */,
 				49E24B8F228DEE8E006D0D0B /* FirebaseService.swift in Sources */,
 				4968C433228A0A210078ACEE /* MovieDataProcessor.swift in Sources */,
