@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		491858F8228D5B2A006FFD99 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491858F7228D5B2A006FFD99 /* LoginViewController.swift */; };
 		491858FA228D61E2006FFD99 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 491858F9228D61E2006FFD99 /* GoogleService-Info.plist */; };
+		49647094229431A2000A401C /* InfoARSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49647093229431A2000A401C /* InfoARSearchViewController.swift */; };
 		4968C42F228A07AB0078ACEE /* HTTPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C42E228A07AB0078ACEE /* HTTPHandler.swift */; };
 		4968C431228A093C0078ACEE /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C430228A093C0078ACEE /* JSONParser.swift */; };
 		4968C433228A0A210078ACEE /* MovieDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C432228A0A210078ACEE /* MovieDataProcessor.swift */; };
 		49B7EE102292BD1D00AAE99F /* InfoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B7EE0F2292BD1D00AAE99F /* InfoSearchViewController.swift */; };
+		49B7EE132292D7C400AAE99F /* MyScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 49B7EE122292D7C400AAE99F /* MyScene.sks */; };
+		49B7EE152292D8CD00AAE99F /* ARSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B7EE142292D8CD00AAE99F /* ARSearchViewController.swift */; };
 		49BE7A362291ADF100353098 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BE7A352291ADF100353098 /* InfoViewController.swift */; };
 		49DBC1762289946C009FA20B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBC1752289946C009FA20B /* AppDelegate.swift */; };
 		49DBC1782289946C009FA20B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBC1772289946C009FA20B /* ViewController.swift */; };
@@ -30,10 +33,13 @@
 		18BA7C34A2A57F7F28C28207 /* Pods-favorite-movies-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-favorite-movies-app.release.xcconfig"; path = "Target Support Files/Pods-favorite-movies-app/Pods-favorite-movies-app.release.xcconfig"; sourceTree = "<group>"; };
 		491858F7228D5B2A006FFD99 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		491858F9228D61E2006FFD99 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		49647093229431A2000A401C /* InfoARSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoARSearchViewController.swift; sourceTree = "<group>"; };
 		4968C42E228A07AB0078ACEE /* HTTPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHandler.swift; sourceTree = "<group>"; };
 		4968C430228A093C0078ACEE /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		4968C432228A0A210078ACEE /* MovieDataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataProcessor.swift; sourceTree = "<group>"; };
 		49B7EE0F2292BD1D00AAE99F /* InfoSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSearchViewController.swift; sourceTree = "<group>"; };
+		49B7EE122292D7C400AAE99F /* MyScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyScene.sks; sourceTree = "<group>"; };
+		49B7EE142292D8CD00AAE99F /* ARSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSearchViewController.swift; sourceTree = "<group>"; };
 		49BE7A352291ADF100353098 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		49DBC1722289946C009FA20B /* favorite-movies-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "favorite-movies-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49DBC1752289946C009FA20B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +77,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		49B7EE112292D7A900AAE99F /* ar */ = {
+			isa = PBXGroup;
+			children = (
+				49B7EE122292D7C400AAE99F /* MyScene.sks */,
+				49B7EE142292D8CD00AAE99F /* ARSearchViewController.swift */,
+			);
+			path = ar;
+			sourceTree = "<group>";
+		};
 		49DBC1692289946C009FA20B = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +107,7 @@
 		49DBC1742289946C009FA20B /* favorite-movies-app */ = {
 			isa = PBXGroup;
 			children = (
+				49B7EE112292D7A900AAE99F /* ar */,
 				49E24B91228DF5BC006D0D0B /* ui */,
 				49E24B90228DF577006D0D0B /* model */,
 				49E24B8D228DEBEA006D0D0B /* service */,
@@ -132,6 +148,7 @@
 				491858F7228D5B2A006FFD99 /* LoginViewController.swift */,
 				49BE7A352291ADF100353098 /* InfoViewController.swift */,
 				49B7EE0F2292BD1D00AAE99F /* InfoSearchViewController.swift */,
+				49647093229431A2000A401C /* InfoARSearchViewController.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -216,6 +233,7 @@
 			files = (
 				49DBC1802289946D009FA20B /* LaunchScreen.storyboard in Resources */,
 				491858FA228D61E2006FFD99 /* GoogleService-Info.plist in Resources */,
+				49B7EE132292D7C400AAE99F /* MyScene.sks in Resources */,
 				49DBC17D2289946D009FA20B /* Assets.xcassets in Resources */,
 				49DBC17B2289946C009FA20B /* Main.storyboard in Resources */,
 			);
@@ -293,10 +311,12 @@
 				49DBC1882289974F009FA20B /* CustomTableViewCell.swift in Sources */,
 				4968C431228A093C0078ACEE /* JSONParser.swift in Sources */,
 				49DBC1782289946C009FA20B /* ViewController.swift in Sources */,
+				49647094229431A2000A401C /* InfoARSearchViewController.swift in Sources */,
 				49B7EE102292BD1D00AAE99F /* InfoSearchViewController.swift in Sources */,
 				49DBC18A2289987F009FA20B /* Movie.swift in Sources */,
 				49E24B8F228DEE8E006D0D0B /* FirebaseService.swift in Sources */,
 				4968C433228A0A210078ACEE /* MovieDataProcessor.swift in Sources */,
+				49B7EE152292D8CD00AAE99F /* ARSearchViewController.swift in Sources */,
 				4968C42F228A07AB0078ACEE /* HTTPHandler.swift in Sources */,
 				49DBC1762289946C009FA20B /* AppDelegate.swift in Sources */,
 			);

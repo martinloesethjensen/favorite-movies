@@ -47,6 +47,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         
         // Upload to firebase
         firebaseService.uploadMovieToDB(movie:movie, documentRef: document)
+        
+        // go back to favorites view controller
+        tabBarController?.selectedIndex = 0
     }
     
     func retrieveMoviesByTerm(searchTerm: String) {
@@ -97,9 +100,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         movieCell.addToFavoriteButton.tag = index
         
         //title
-        movieCell.movieTitle?.text = searchResults[index].title
-        //year
-        movieCell.movieYear?.text = searchResults[index].year
+        movieCell.movieTitle?.text = self.searchResults[index].title
+        
+        movieCell.movieYear?.text = self.searchResults[index].year
+        
         // image
         displayMovieImage(index, movieCell: movieCell)
         

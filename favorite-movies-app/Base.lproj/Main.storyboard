@@ -328,17 +328,33 @@
             </objects>
             <point key="canvasLocation" x="1048" y="875"/>
         </scene>
-        <!--View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="g2Z-0v-PDO">
             <objects>
-                <viewController id="HlH-h4-1L8" sceneMemberID="viewController">
+                <viewController id="HlH-h4-1L8" customClass="ARSearchViewController" customModule="favorite_movies_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JYJ-52-sZ5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arskView contentMode="scaleToFill" sceneName="AR Search View" translatesAutoresizingMaskIntoConstraints="NO" id="a6n-m3-a5R">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            </arskView>
+                        </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="a6n-m3-a5R" firstAttribute="bottom" secondItem="dEg-vP-JRH" secondAttribute="bottom" id="3gZ-7W-k3a"/>
+                            <constraint firstAttribute="trailing" secondItem="a6n-m3-a5R" secondAttribute="trailing" id="7rm-Pf-iGi"/>
+                            <constraint firstItem="a6n-m3-a5R" firstAttribute="leading" secondItem="JYJ-52-sZ5" secondAttribute="leading" id="ofi-vD-BCY"/>
+                            <constraint firstItem="a6n-m3-a5R" firstAttribute="top" secondItem="dEg-vP-JRH" secondAttribute="top" id="z2u-Fv-let"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dEg-vP-JRH"/>
                     </view>
                     <navigationItem key="navigationItem" id="s7F-T7-g9g"/>
+                    <connections>
+                        <outlet property="arskView" destination="a6n-m3-a5R" id="44l-Pr-IZi"/>
+                        <segue destination="Yhb-8T-8Eo" kind="show" identifier="" id="6c6-Vn-4s5"/>
+                        <segue destination="CFw-3g-Nfg" kind="show" identifier="showARSearchInfo" id="NHP-Zr-Tng"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EVc-Wy-XWu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -474,10 +490,86 @@
             </objects>
             <point key="canvasLocation" x="3758" y="875"/>
         </scene>
+        <!--InfoAR Search View Controller-->
+        <scene sceneID="3CG-RJ-HG3">
+            <objects>
+                <viewController id="CFw-3g-Nfg" customClass="InfoARSearchViewController" customModule="favorite_movies_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pas-8P-zMQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ol2-fP-fb1" userLabel="movieImageView">
+                                <rect key="frame" x="20" y="109" width="374" height="392"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UdN-OZ-4h6" userLabel="movieTitle">
+                                <rect key="frame" x="20" y="527" width="374" height="83"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="83" id="IPh-5W-StS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhI-Tq-Ol2" userLabel="movieYear">
+                                <rect key="frame" x="20" y="618" width="374" height="61"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61" id="6oa-6R-nwc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZaX-Bw-yYb">
+                                <rect key="frame" x="20" y="736" width="374" height="51"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="27b-IK-x2f"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Add to Favorites"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addToFavorites" destination="CFw-3g-Nfg" eventType="touchUpInside" id="fD7-Ac-KcZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jhI-Tq-Ol2" firstAttribute="leading" secondItem="ZaX-Bw-yYb" secondAttribute="leading" id="5vO-Hv-9pj"/>
+                            <constraint firstItem="jhI-Tq-Ol2" firstAttribute="top" secondItem="UdN-OZ-4h6" secondAttribute="bottom" constant="8" symbolic="YES" id="Dfe-we-htW"/>
+                            <constraint firstItem="ol2-fP-fb1" firstAttribute="leading" secondItem="Pas-8P-zMQ" secondAttribute="leadingMargin" id="GtB-r6-yJG"/>
+                            <constraint firstItem="UdN-OZ-4h6" firstAttribute="trailing" secondItem="jhI-Tq-Ol2" secondAttribute="trailing" id="Mry-jr-YuC"/>
+                            <constraint firstItem="ol2-fP-fb1" firstAttribute="top" secondItem="wn2-IL-eYa" secondAttribute="top" constant="21" id="OJZ-4I-Zho"/>
+                            <constraint firstItem="jhI-Tq-Ol2" firstAttribute="trailing" secondItem="ZaX-Bw-yYb" secondAttribute="trailing" id="PVO-AJ-YgI"/>
+                            <constraint firstItem="UdN-OZ-4h6" firstAttribute="top" secondItem="ol2-fP-fb1" secondAttribute="bottom" constant="26" id="YMX-1p-9nC"/>
+                            <constraint firstItem="UdN-OZ-4h6" firstAttribute="leading" secondItem="jhI-Tq-Ol2" secondAttribute="leading" id="aJj-18-xhx"/>
+                            <constraint firstItem="ol2-fP-fb1" firstAttribute="leading" secondItem="UdN-OZ-4h6" secondAttribute="leading" id="eU5-eH-PtM"/>
+                            <constraint firstItem="ZaX-Bw-yYb" firstAttribute="top" secondItem="jhI-Tq-Ol2" secondAttribute="bottom" constant="57" id="jPl-eJ-IrB"/>
+                            <constraint firstItem="wn2-IL-eYa" firstAttribute="bottom" secondItem="ZaX-Bw-yYb" secondAttribute="bottom" constant="26" id="rKH-3J-frj"/>
+                            <constraint firstItem="ol2-fP-fb1" firstAttribute="trailing" secondItem="Pas-8P-zMQ" secondAttribute="trailingMargin" id="xmc-9V-xyO"/>
+                            <constraint firstItem="ol2-fP-fb1" firstAttribute="trailing" secondItem="UdN-OZ-4h6" secondAttribute="trailing" id="ysC-eH-BkE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wn2-IL-eYa"/>
+                    </view>
+                    <connections>
+                        <outlet property="movieImageView" destination="ol2-fP-fb1" id="6aI-Q4-f5C"/>
+                        <outlet property="movieTitle" destination="UdN-OZ-4h6" id="VLn-Ha-3vF"/>
+                        <outlet property="movieYear" destination="jhI-Tq-Ol2" id="ic7-dy-0iS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WZW-iu-fLq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3758" y="1572"/>
+        </scene>
     </scenes>
     <resources>
         <image name="camera" width="30" height="30"/>
         <image name="search" width="30" height="30"/>
         <image name="star" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="6c6-Vn-4s5"/>
+    </inferredMetricsTieBreakers>
 </document>
