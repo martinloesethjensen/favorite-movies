@@ -43,26 +43,4 @@ class FirebaseService {
             }
         }
     }
-
-    // TODO: find a way to delegate the viewcontroller to this class so we can update the mainTableView when we have the data from firebase.
-//    func startMovieListener() {
-//        moviesCollection.addSnapshotListener { (snapshot, error) in
-//
-//            self.movies.removeAll()
-//
-//            for document in snapshot!.documents {
-//                if let title = document.data()["title"] as? String,
-//                    let imageUrl = document.data()["imageUrl"] as? String,
-//                    let year = document.data()["year"] as? String,
-//                    let id = document.documentID as? String {
-//                    let movie = Movie(id: id, title: title, year: year, imageUrl: imageUrl)
-//                    self.movies.append(movie)
-//                    print("received \(title)")
-//                }
-//            }
-//            DispatchQueue.main.async {
-//                self.viewController.mainTableView.reloadData()
-//            }
-//        }
-//    }
 }

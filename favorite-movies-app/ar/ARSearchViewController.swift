@@ -66,7 +66,7 @@ class ARSearchViewController: UIViewController, ARSKViewDelegate {
             DispatchQueue.main.async {
                 if let infoARSearchViewController = segue.destination as? InfoARSearchViewController {
                     infoARSearchViewController.movie = self.searchResult
-                    print(infoARSearchViewController.movie?.title)
+                    print(infoARSearchViewController.movie?.title ?? "Should have been movie title")
                 }
             }
         }

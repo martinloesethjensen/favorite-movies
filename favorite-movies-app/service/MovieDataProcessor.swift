@@ -27,8 +27,4 @@ class MovieDataProcessor {
         }
         return mappedMovies
     }
-    
-    static func write(movies: [Movie]) {
-        // TODO: Implement :)
-    }
 }

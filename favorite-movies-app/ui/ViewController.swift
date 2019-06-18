@@ -14,7 +14,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var favoriteMovies = [Movie]()
     var selectedMovie: Movie!
     
-    @IBOutlet var mainTableView: UITableView!
+    @IBOutlet weak var mainTableView: UITableView!
     
     lazy var firebaseService = FirebaseService()
     

@@ -13,8 +13,8 @@ import FirebaseStorage
 
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet var searchText: UITextField!
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var searchText: UITextField!
+    @IBOutlet weak var tableView: UITableView!
     
     var selectedMovie: Movie?
     
